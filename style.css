@@ -1,0 +1,367 @@
+/*
+ * Portfolio Website Styles for Naufal Fairuz Adryan
+ *
+ * This stylesheet defines a dark‑themed, modern layout for the
+ * personal portfolio. It uses CSS variables for easy colour
+ * management and leverages flexbox and CSS grid for responsive
+ * arrangements. Font weights and sizes are tuned for readability
+ * across devices.
+ */
+
+/* Colour palette */
+:root {
+  /* Vibrant blue for primary elements */
+  --primary-color: #1e2aff;
+  /* Lime accent colour for highlights and accents */
+  --accent-color: #c4e538;
+  /* Crisp, light background for the overall page */
+  --bg-color: #f5f7fa;
+  /* Card backgrounds remain pure white */
+  --card-bg: #ffffff;
+  /* Dark charcoal for primary text */
+  --text-color: #1f1f1f;
+  /* Medium grey for subtext */
+  --subtext-color: #666666;
+  /* Dark charcoal for navigation and footer backgrounds */
+  --nav-bg: #1c1c1e;
+  --footer-bg: #1c1c1e;
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--accent-color);
+}
+
+/* Navigation */
+nav.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+  /* Light background for the navigation bar */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+nav .logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul.nav-links li a {
+  font-weight: 600;
+  /* Primary colour for nav links on light background */
+  color: var(--primary-color);
+  padding: 0.25rem 0;
+  position: relative;
+}
+
+/* Change link colour on hover */
+nav ul.nav-links li a:hover {
+  color: var(--accent-color);
+}
+nav ul.nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.3s ease;
+}
+nav ul.nav-links li a:hover::after {
+  width: 100%;
+}
+
+/* Hero section */
+header.hero {
+  /* Bold blue background for the hero section */
+  background-color: var(--primary-color);
+  padding: 6rem 1rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+header.hero .hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+header.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  /* Larger display font for hero name */
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+  /* Highlight the name in lime */
+  color: var(--accent-color);
+}
+header.hero h2 {
+  font-size: 1.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  /* Secondary text in white for contrast on blue */
+  color: #ffffff;
+}
+header.hero .tagline {
+  font-style: italic;
+  /* Subtle white for tagline */
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2rem;
+}
+header.hero .btn {
+  display: inline-block;
+  /* Use the accent colour for call‑to‑action button */
+  background-color: var(--accent-color);
+  color: #1c1c1e;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+header.hero .btn:hover {
+  /* Slightly darker lime on hover */
+  background-color: #b4d62f;
+}
+
+/* Section generic */
+section {
+  max-width: 1100px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* About */
+.about p {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+.skill-card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease;
+  /* Soft shadow for separation on light backgrounds */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+.skill-card i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+}
+.skill-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: 600;
+}
+.skill-card p {
+  font-size: 0.9rem;
+  color: var(--subtext-color);
+}
+
+/* Experience */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.timeline-item {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  /* Use lime accent for the timeline indicator */
+  border-left: 4px solid var(--accent-color);
+  border-radius: 8px;
+  position: relative;
+  /* Soft shadow for separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.timeline-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+.timeline-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+}
+.timeline-item .date {
+  font-size: 0.85rem;
+  color: var(--subtext-color);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.timeline-item p {
+  font-size: 0.9rem;
+  color: var(--subtext-color);
+  line-height: 1.5;
+}
+
+/* Education */
+.edu-item {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  /* Soft shadow for separation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+.edu-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+  color: var(--primary-color);
+}
+.edu-item h4 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+}
+.edu-item .date {
+  font-size: 0.85rem;
+  color: var(--subtext-color);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.edu-item p {
+  font-size: 0.9rem;
+  color: var(--subtext-color);
+  line-height: 1.6;
+}
+
+/* Contact */
+.contact p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--subtext-color);
+}
+.contact form {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+input,
+textarea {
+  padding: 0.75rem;
+  border-radius: 4px;
+  /* Light border and background for form fields */
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  color: var(--text-color);
+  resize: vertical;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+button.btn {
+  background-color: var(--primary-color);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button.btn:hover {
+  background-color: #e6b200;
+}
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+.social-links a {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+.social-links a:hover {
+  color: #e6b200;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  /* Light footer background */
+  background-color: #f0f4f8;
+  color: var(--subtext-color);
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav.navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav ul.nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+  header.hero h1 {
+    font-size: 2.5rem;
+  }
+  header.hero h2 {
+    font-size: 1.25rem;
+  }
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
